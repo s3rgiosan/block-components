@@ -1,0 +1,43 @@
+!function(){"use strict";var e={4512:function(e,n,t){t.d(n,{useFilteredList:function(){return i}});var o=t(7966),r=require("@leeoniya/ufuzzy");const c=new(t.n(r)());function i(e=[],n="",t="name"){const[r,i]=(0,o.useState)(e),a=(0,o.useMemo)(()=>e.map(e=>e[t]),[e,t]),s=(0,o.useCallback)(n=>{const t=c.filter(a,n);return t?.map(n=>e[n])||[]},[a,e]);return(0,o.useEffect)(()=>{const t=""!==n&&!!e?.length?s(n):e;i(t)},[n,s,e]),[r]}},7440:function(e,n,t){t.d(n,{useIcon:function(){return f},useIcons:function(){return l}});var o=t(5214),r=t(8475),c=t(7816);function i(e,n){const t=`${n}/`;return e.startsWith(t)?e.slice(t.length):e}function a(e){return{source:(n=e.content,n.replace(/<svg\b([^>]*)>/i,(e,n)=>/\sfill\s*=/i.test(n)?e:`<svg fill="currentColor"${n}>`)),name:i(e.name,e.collection),label:e.label,iconSet:e.collection};var n}function s(e,n=""){const{getEntityConfig:t,getEntityRecords:o}=e(c.store),r=t?.("root","icon");if(!r)return[];const i=(o("root","icon")??[]).map(a);return n?i.filter(e=>e.iconSet===n):i}function u(e){return e.icons.map(n=>({...n,iconSet:e.name}))}const l=(e="")=>(0,o.useSelect)(n=>{const{getIconSet:t,getIconSets:o}=n(r.N);let c;if(e){const n=t(e);c=Array.isArray(n)?[]:u(n)}else c=o().reduce((e,n)=>[...e,...u(n)],[]);return function(e,n){const t=new Set(e.map(e=>`${e.iconSet}/${e.name}`)),o=[...e];return n.forEach(e=>{const n=`${e.iconSet}/${e.name}`;t.has(n)||(t.add(n),o.push(e))}),o}(c,s(n,e))},[e]),f=(e,n)=>(0,o.useSelect)(t=>{const o=t(r.N).getIcon(e,n);if(!!o&&!Array.isArray(o))return o;return s(t,e).find(e=>e.name===n)??o},[e,n])},7785:function(e,n,t){t.d(n,{store:function(){return d}});var o={};t.r(o),t.d(o,{getIcon:function(){return u},getIconSet:function(){return a},getIconSets:function(){return i},getIcons:function(){return s}});var r={};t.r(r),t.d(r,{registerIconSet:function(){return l},removeIconSet:function(){return f}});var c=t(5214);function i(e){const{iconSets:n}=e;return Object.values(n)}function a(e,n){const{iconSets:t}=e;return t[n]??[]}function s(e,n){const{iconSets:t}=e;return t?.hasOwnProperty(n)?t[n]?.icons??[]:[]}function u(e,n,t){const{iconSets:o}=e;return o?.hasOwnProperty(n)?o[n]?.icons?.find(e=>e.name===t)??[]:void 0}function l(e){return{type:"REGISTER_ICON_SET",iconSet:e}}function f(e){return{type:"REMOVE_ICON_SET",name:e}}const p="tenup/icons",d=(0,c.createReduxStore)(p,{reducer:function(e={iconSets:{}},n){switch(n.type){case"REGISTER_ICON_SET":return{...e,iconSets:{...e.iconSets,[n.iconSet.name]:n.iconSet}};case"REMOVE_ICON_SET":if(e.iconSets.hasOwnProperty(n.name)){const t={...e};return delete t.iconSets[n.name],t}return e;default:return e}},selectors:o,actions:r});!!(0,c.select)(p)||(0,c.register)(d)},8475:function(e,n,t){t.d(n,{N:function(){return o.store}});var o=t(7785)},5227:function(e){e.exports=require("@emotion/styled")},2050:function(e){e.exports=require("@wordpress/components")},6314:function(e){e.exports=require("@wordpress/compose")},7816:function(e){e.exports=require("@wordpress/core-data")},5214:function(e){e.exports=require("@wordpress/data")},7966:function(e){e.exports=require("@wordpress/element")},8450:function(e){e.exports=require("@wordpress/i18n")}},n={};function t(o){var r=n[o];if(void 0!==r)return r.exports;var c=n[o]={exports:{}};return e[o](c,c.exports,t),c.exports}t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,{a:n}),n},t.d=function(e,n){for(var o in n)t.o(n,o)&&!t.o(e,o)&&Object.defineProperty(e,o,{enumerable:!0,get:n[o]})},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})};var o={};t.r(o),t.d(o,{Icon:function(){return s},IconPicker:function(){return x},IconPickerToolbarButton:function(){return w},InlineIconPicker:function(){return O}});var r=t(7966),c=t(2050),i=t(7440);function a(){return a=Object.assign?Object.assign.bind():function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var o in t)({}).hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e},a.apply(null,arguments)}const s=(0,r.forwardRef)(function(e,n){const{name:t,iconSet:o,onClick:s,...u}=e,l=(0,i.useIcon)(o,t);if(!l||Array.isArray(l))return(0,r.createElement)(c.Spinner,null);const f={};return"function"===typeof s&&(f.role="button",f.tabIndex=0,f["aria-label"]="Change Icon",f.onClick=s),(0,r.createElement)("div",a({},f,{dangerouslySetInnerHTML:{__html:l.source}},u,{ref:n}))});var u=t(5227),l=t.n(u),f=t(8450),p=t(6314),d=require("react-window"),m=t(4512);function g(){return g=Object.assign?Object.assign.bind():function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var o in t)({}).hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e},g.apply(null,arguments)}const h=(0,r.forwardRef)(function(e,n){const{children:t}=e;return(0,r.createElement)("div",g({ref:n,className:"component-icon-picker__tooltip-content"},e),t)}),b=l()(s)`
+	background-color: ${({selected:e})=>e?"black":"white"};
+	color: ${({selected:e})=>e?"white":"black"};
+	fill: ${({selected:e})=>e?"white":"black"};
+	padding: 5px;
+	border: none;
+	border-radius: 4px;
+	height: 34px;
+	width: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background-color: ${({selected:e})=>e?"#555D66":"#f3f4f5"};
+	}
+
+	& svg {
+		max-height: 100%;
+		max-width: 100%;
+		height: auto;
+		width: 100%;
+		object-fit: contain;
+	}
+`,S=e=>{const{icon:n,isChecked:t}=e;return(0,r.createElement)(c.Tooltip,{text:n.label},(0,r.createElement)(h,null,(0,r.createElement)(b,{selected:t,key:n.name,name:n.name,iconSet:n.iconSet})))},v=(0,r.memo)(e=>{const{columnIndex:n,rowIndex:t,style:o,data:i}=e,{icons:a,selectedIcon:s,onChange:u}=i,l=a[5*t+n],f=s?.name===l?.name&&s?.iconSet===l?.iconSet;if(!l)return null;const p=(0,r.createElement)(S,{isChecked:f,icon:l});return(0,r.createElement)("div",{style:o},(0,r.createElement)(c.CheckboxControl,{key:l.name,label:p,checked:f,onChange:()=>u(l),className:"component-icon-picker__checkbox-control"}))},d.areEqual),y=l()(d.FixedSizeGrid)`
+	.component-icon-picker__checkbox-control {
+		margin-bottom: 0;
+	}
+
+	.components-checkbox-control__input,
+	.components-checkbox-control__input-container {
+		display: none;
+	}
+`,E=e=>{const{icons:n,selectedIcon:t,onChange:o}=e,i=(0,r.useMemo)(()=>({icons:n,selectedIcon:t,onChange:o}),[n,t,o]);return(0,r.createElement)(c.NavigableMenu,{orientation:"vertical",className:"component-icon-picker__list"},(0,r.createElement)(y,{columnCount:5,columnWidth:49.6,rowCount:Math.ceil(n.length/5),rowHeight:49.6,itemData:i,height:200,width:248},v))},x=e=>{const{value:n,onChange:t,iconSet:o,label:a="",...s}=e,u=(0,i.useIcons)(o||""),l=`icon-picker-${(0,p.useInstanceId)(x)}`,[d,h]=(0,r.useState)(""),[b]=(0,m.useFilteredList)(u,d),S=!!b.length;return(0,r.createElement)(c.BaseControl,g({label:a,id:l,className:"component-icon-picker"},s),(0,r.createElement)(c.SearchControl,{value:d,onChange:h,id:l}),S?(0,r.createElement)(E,{icons:b,selectedIcon:n,onChange:t}):(0,r.createElement)("p",null,(0,f.__)("No icons were found...")))},I=l()(x)`
+	margin: 6px;
+	width: 248px;
+	height: 248px;
+`,w=e=>{const{value:n,buttonLabel:t=(0,f.__)("Select Icon")}=e,o=n?.name&&n?.iconSet?(0,r.createElement)(s,{name:n?.name,iconSet:n?.iconSet}):null;return(0,r.createElement)(c.Dropdown,{className:"component-icon-picker-toolbar-button",contentClassName:"component-icon-picker-toolbar-button__content",popoverProps:{placement:"bottom-start"},renderToggle:({isOpen:e,onToggle:n})=>(0,r.createElement)(c.ToolbarButton,{onClick:n,"aria-expanded":e,icon:o},t),renderContent:()=>(0,r.createElement)(I,e)})};function k(){return k=Object.assign?Object.assign.bind():function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var o in t)({}).hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e},k.apply(null,arguments)}const _=l()(x)`
+	margin: 6px;
+	width: 248px;
+	height: 248px;
+`,C=e=>{const{renderToggle:n,...t}=e;return(0,r.createElement)(c.Dropdown,{className:"component-icon-picker-inline-button",contentClassName:"component-icon-picker-inline__content",popoverProps:{placement:"bottom-start"},renderToggle:n,renderContent:()=>(0,r.createElement)(_,t)})},O=e=>{const{value:n,...t}=e,o=(0,r.useCallback)(({onToggle:e})=>(0,r.createElement)(s,k({name:n?.name,iconSet:n?.iconSet,onClick:e},t)),[n,t]);return(0,r.createElement)(C,k({renderToggle:o},e))};module.exports=o}();
+//# sourceMappingURL=index.js.map
