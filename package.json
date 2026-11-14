@@ -60,22 +60,6 @@
 			}
 		}
 	},
-	"scripts": {
-		"prepublishOnly": "npm run build",
-		"lint": "10up-toolkit lint-js",
-		"test": "10up-toolkit test-unit-jest",
-		"build": "npm run clean-dist && 10up-toolkit build",
-		"start": "10up-toolkit start",
-		"clean": "10up-toolkit clean",
-		"clean-dist": "rm -rf ./dist",
-		"start-env": "wp-env start",
-		"stop-env": "wp-env stop",
-		"build-test-env": "npm run build && npm install --prefix example && npm run build --prefix example",
-		"start-test-env": "npm run start-env --prefix example && npm run import-media --prefix example",
-		"test:e2e": "cypress open",
-		"cypress:open": "cypress open --config-file ./cypress.config.js --e2e --browser chrome",
-		"cypress:run": "cypress run --config-file ./cypress.config.js"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/10up/block-components.git"
